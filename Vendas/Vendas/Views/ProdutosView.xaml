@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Vendas.Views.ProdutosView"
+             Title="Produtos">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Ordenar" Command="{Binding OrdenarCommand}"></ToolbarItem>
+        <ToolbarItem Text="Filtrar" Command="{Binding FiltrarCommand}"></ToolbarItem>        
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <SearchBar IsVisible="{Binding SearchBarVisible}" Text="{Binding TextoBusca}" ></SearchBar>
+        <ListView ItemsSource="{Binding ListaProdutos,Mode=TwoWay}" SeparatorColor="Black" SelectedItem="{Binding ProdutoSelecionado}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!--<StackLayout Orientation="Horizontal">-->
+                    <ImageCell ImageSource="{Binding sImagemProduto}" Text="{Binding sDscProduto}" TextColor="Black" DetailColor="DarkGreen"  Detail="{Binding sPrecoFormatado}">
+                        <ViewCell>
+                            <!--<Label Text="{Binding sDscCategoria}" FontSize="Medium" TextColor="Black" ></Label>-->
+                        </ViewCell>
+                    </ImageCell>
+                    <!--</StackLayout>-->
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView> 
+    </StackLayout>
+</ContentPage>

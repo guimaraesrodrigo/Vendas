@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Vendas.Views.CarrinhoView"
+             Title="Carrinho de Compras">
+
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Excluir" Command="{Binding ExcluirItemCommand}" ></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <StackLayout Orientation="Vertical">
+        <ListView ItemsSource="{Binding ListaProdutos}" SeparatorColor="Black" SelectedItem="{Binding ProdutoSelecionado}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell ImageSource="{Binding sImagemProduto}" Text="{Binding sDscProduto}"  
+                           TextColor="Black" DetailColor="Gray" Detail="{Binding sPrecoFormatadoComQuantidade}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackLayout BackgroundColor="White">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label HorizontalOptions="Start" Grid.Column="0" Grid.Row="0" FontAttributes="Bold" FontSize="Large" Text="Qtd   Total" />
+                <Label HorizontalOptions="Start" Grid.Column="0" Grid.Row="1" FontAttributes="Bold" FontSize="Large" Text="Valor Total"/>
+                <Label HorizontalOptions="Center" Grid.Column="1" Grid.Row="0" FontAttributes="Bold" FontSize="Large" Text="{Binding QuantidadeProdutos,Mode=TwoWay}" />
+                <Label HorizontalOptions="Center" Grid.Column="1" Grid.Row="1" TextColor="Red" FontAttributes="Bold" FontSize="Large" Text="{Binding ValorProdutos,Mode=TwoWay}"/>
+            </Grid>
+            <Button BackgroundColor="DarkGreen" TextColor="White" FontAttributes="Bold" Text="Finalizar Compra" Command="{Binding FinalizarCompraCommand}"/>
+
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>

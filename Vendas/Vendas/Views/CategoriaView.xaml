@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Vendas.Views.CategoriaView"
+             Title="Categorias">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Carrinho" Icon="shoppingcart.png" Command="{Binding CarrinhoComprasCommand}" ></ToolbarItem>
+    </ContentPage.ToolbarItems>
+   
+   
+    <ListView ItemsSource="{Binding ListaCategorias}" SeparatorColor="Black" SelectedItem="{Binding CategoriaSelecionada}" >
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <!--<StackLayout Orientation="Horizontal">-->
+                    <ImageCell ImageSource="{Binding sImagemCategoria}" Text="{Binding sDscCategoria}" TextColor="Black" DetailColor="Gray">
+                        <ViewCell>
+                            <!--<Label Text="{Binding sDscCategoria}" FontSize="Medium" TextColor="Black" ></Label>-->
+                        </ViewCell>
+                    </ImageCell>
+                <!--</StackLayout>-->
+            </DataTemplate>
+        </ListView.ItemTemplate>
+
+    </ListView>
+</ContentPage>
